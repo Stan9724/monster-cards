@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React, {Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Définir une classe App qui hérite de la classe Component de React
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      monsters : [
+        {
+          name: 'Franke',
+          id: 'asc1'
+        },
+        {
+          name: 'Fobstark',
+          id: 'asc2'
+        },
+        {
+          name: 'Thejoy',
+          id: 'asc3'
+        },
+      ]
+    };
+  }
+
+  // Méthode de rendu de la composante
+  render() {
+    return (
+        <div className="App">
+          {
+            this.state.monsters.map(monster => <h1 key={monster.id}> { monster.name } </h1>)
+          }
+        </div>
+    );
+  }
 }
 
+// Exporter la classe App pour pouvoir l'utiliser dans d'autres fichiers
 export default App;
